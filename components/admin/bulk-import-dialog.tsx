@@ -107,10 +107,10 @@ export function BulkImportDialog({ onSuccess }: { onSuccess?: () => void }) {
   }
 
   const downloadSampleCSV = () => {
-    const sampleData = `title,imageUrl,category,tags,resolution,deviceType,customSlug
-SAMPLE WALLPAPER,https://picsum.photos/400/600?random=1,nature,"mountain,landscape,beautiful",1080x1920,phone,sample-wallpaper
-EXAMPLE ABSTRACT,https://picsum.photos/400/600?random=2,abstract,"art,colorful,modern",1080x1920,phone,
-MINIMAL DESIGN,https://picsum.photos/400/600?random=3,minimal,"clean,simple",2560x1440,desktop,minimal-design-wallpaper`
+    const sampleData = `title,imageUrl,category,tags,resolution,deviceType,customSlug,description
+SAMPLE WALLPAPER,https://picsum.photos/400/600?random=1,nature,"mountain,landscape,beautiful",1080x1920,phone,sample-wallpaper,"A beautiful mountain landscape wallpaper"
+EXAMPLE ABSTRACT,https://picsum.photos/400/600?random=2,abstract,"art,colorful,modern",1080x1920,phone,,"Modern colorful abstract art design"
+MINIMAL DESIGN,https://picsum.photos/400/600?random=3,minimal,"clean,simple",2560x1440,desktop,minimal-design-wallpaper,"Clean and simple minimal design for desktop"`
 
     const blob = new Blob([sampleData], { type: 'text/csv' })
     const url = URL.createObjectURL(blob)
@@ -160,8 +160,8 @@ MINIMAL DESIGN,https://picsum.photos/400/600?random=3,minimal,"clean,simple",256
             <h3 className="font-black mb-2">CSV FORMAT REQUIREMENTS:</h3>
             <div className="text-sm space-y-1">
               <p><strong>Required columns:</strong> title, imageUrl, category</p>
-              <p><strong>Optional columns:</strong> tags (comma-separated), resolution, deviceType, customSlug</p>
-              <p><strong>Example:</strong> title,imageUrl,category,tags,resolution,deviceType,customSlug</p>
+              <p><strong>Optional columns:</strong> tags (comma-separated), resolution, deviceType, customSlug, description</p>
+              <p><strong>Example:</strong> title,imageUrl,category,tags,resolution,deviceType,customSlug,description</p>
             </div>
             <Button
               variant="outline"

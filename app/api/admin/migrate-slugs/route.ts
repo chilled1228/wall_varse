@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
       {
         success: false,
         error: 'Migration failed',
-        details: error.message
+        details: error instanceof Error ? error.message : 'Unknown error'
       },
       { status: 500 }
     )

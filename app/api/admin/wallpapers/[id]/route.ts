@@ -6,10 +6,11 @@ import { r2Service } from '@/lib/r2-service'
 // GET - Get wallpaper by ID
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const docRef = doc(db, 'wallpapers', params.id)
+    const { id } = await params
+    const docRef = doc(db, 'wallpapers', id)
     const docSnap = await getDoc(docRef)
 
     if (!docSnap.exists()) {
@@ -38,9 +39,10 @@ export async function GET(
 // PUT - Update wallpaper
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params
     const body = await request.json()
     const { title, category, tags, resolution, deviceType } = body
 
@@ -52,7 +54,7 @@ export async function PUT(
       )
     }
 
-    const docRef = doc(db, 'wallpapers', params.id)
+    const docRef = doc(db, 'wallpapers', id)
 
     // Check if wallpaper exists
     const docSnap = await getDoc(docRef)
@@ -83,7 +85,7 @@ export async function PUT(
     return NextResponse.json({
       success: true,
       wallpaper: {
-        id: params.id,
+        id: id,
         ...docSnap.data(),
         ...updateData,
       },
@@ -100,10 +102,11 @@ export async function PUT(
 // DELETE - Delete wallpaper
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const docRef = doc(db, 'wallpapers', params.id)
+    const { id } = await params
+    const docRef = doc(db, 'wallpapers', id)
 
     // Get wallpaper data first
     const docSnap = await getDoc(docRef)

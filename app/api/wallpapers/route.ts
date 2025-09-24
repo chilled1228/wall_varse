@@ -47,7 +47,7 @@ export async function GET(request: NextRequest) {
     console.error('Error getting wallpapers:', error)
 
     // Provide more specific error message for Firebase index issues
-    if (error.code === 'failed-precondition') {
+    if (error && typeof error === 'object' && 'code' in error && error.code === 'failed-precondition') {
       return NextResponse.json(
         {
           success: false,

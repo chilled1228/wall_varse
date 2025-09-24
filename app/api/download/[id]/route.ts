@@ -27,9 +27,10 @@ const wallpapers = [
   // Add more wallpapers as needed
 ]
 
-export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
-    const wallpaperId = Number.parseInt(params.id)
+    const { id } = await params
+    const wallpaperId = Number.parseInt(id)
     const wallpaper = wallpapers.find((w) => w.id === wallpaperId)
 
     if (!wallpaper) {

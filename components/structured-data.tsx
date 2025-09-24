@@ -1,6 +1,6 @@
 interface WallpaperStructuredDataProps {
   wallpaper: {
-    id: number
+    id: number | string
     title: string
     category: string
     downloads: number
@@ -9,6 +9,8 @@ interface WallpaperStructuredDataProps {
     resolution: string
     tags: string[]
     fileSize: string
+    description?: string
+    slug?: string
   }
 }
 
@@ -17,7 +19,7 @@ export function WallpaperStructuredData({ wallpaper }: WallpaperStructuredDataPr
     "@context": "https://schema.org",
     "@type": "ImageObject",
     name: wallpaper.title,
-    description: `${wallpaper.title} - Free mobile wallpaper in ${wallpaper.category} category`,
+    description: wallpaper.description || `${wallpaper.title} - Free mobile wallpaper in ${wallpaper.category} category`,
     contentUrl: wallpaper.imageUrl,
     thumbnailUrl: wallpaper.imageUrl,
     width: wallpaper.resolution.split("x")[0],

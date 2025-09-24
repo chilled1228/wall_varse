@@ -79,7 +79,9 @@ export function WallpaperPageComponent({ params }: WallpaperPageComponentProps) 
 
       // Update meta description
       const metaDescription = document.querySelector('meta[name="description"]')
-      const description = `Download ${wallpaper.title} - A beautiful ${wallpaper.category} wallpaper in ${wallpaper.resolution} resolution. Perfect for your ${wallpaper.deviceType || 'mobile'} device.`
+      const description = wallpaper.description
+        ? `${wallpaper.description} Download ${wallpaper.title} in ${wallpaper.resolution} resolution for ${wallpaper.deviceType || 'mobile'}.`
+        : `Download ${wallpaper.title} - A beautiful ${wallpaper.category} wallpaper in ${wallpaper.resolution} resolution. Perfect for your ${wallpaper.deviceType || 'mobile'} device.`
 
       if (metaDescription) {
         metaDescription.setAttribute('content', description)
@@ -316,10 +318,15 @@ export function WallpaperPageComponent({ params }: WallpaperPageComponentProps) 
                 </div>
               </div>
 
-              <p className="text-base sm:text-lg font-bold text-muted-foreground mb-6">
-                Download {wallpaper.title} - A beautiful {wallpaper.category} wallpaper in {wallpaper.resolution} resolution.
-                Perfect for your {wallpaper.deviceType || 'mobile'} device with high-quality details and vibrant colors.
-              </p>
+              {wallpaper.description && (
+                <div className="mb-6">
+                  <h2 className="text-xl font-black text-foreground mb-3">DESCRIPTION</h2>
+                  <p className="text-base sm:text-lg font-bold text-muted-foreground leading-relaxed">
+                    {wallpaper.description}
+                  </p>
+                </div>
+              )}
+
             </div>
 
             {/* Stats */}
@@ -363,7 +370,7 @@ export function WallpaperPageComponent({ params }: WallpaperPageComponentProps) 
                 <div className="flex items-center justify-between">
                   <span className="font-bold text-muted-foreground">Upload Date:</span>
                   <span className="font-black text-card-foreground">
-                    {wallpaper.createdAt ? new Date(wallpaper.createdAt.seconds * 1000).toLocaleDateString() : 'Recent'}
+                    {wallpaper.createdAt ? (wallpaper.createdAt instanceof Date ? wallpaper.createdAt.toLocaleDateString() : new Date(wallpaper.createdAt).toLocaleDateString()) : 'Recent'}
                   </span>
                 </div>
               </div>

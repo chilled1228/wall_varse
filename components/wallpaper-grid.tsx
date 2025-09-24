@@ -217,6 +217,13 @@ export function WallpaperGrid({ category, searchQuery }: WallpaperGridProps) {
               </span>
             </div>
 
+            {/* Description */}
+            {wallpaper.description && (
+              <p className="text-xs sm:text-sm text-muted-foreground font-bold mb-3 line-clamp-2">
+                {wallpaper.description}
+              </p>
+            )}
+
             {/* Stats */}
             <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4 text-xs sm:text-sm text-muted-foreground">
               <div className="flex items-center gap-1">

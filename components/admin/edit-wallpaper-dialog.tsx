@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Badge } from "@/components/ui/badge"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
@@ -39,6 +40,7 @@ export function EditWallpaperDialog({ wallpaper, onSuccess, trigger }: EditWallp
   const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
     title: wallpaper.title,
+    description: wallpaper.description || '',
     category: wallpaper.category,
     resolution: wallpaper.resolution,
     deviceType: wallpaper.deviceType || 'phone',
@@ -53,6 +55,7 @@ export function EditWallpaperDialog({ wallpaper, onSuccess, trigger }: EditWallp
   useEffect(() => {
     setFormData({
       title: wallpaper.title,
+      description: wallpaper.description || '',
       category: wallpaper.category,
       resolution: wallpaper.resolution,
       deviceType: wallpaper.deviceType || 'phone',
@@ -98,6 +101,7 @@ export function EditWallpaperDialog({ wallpaper, onSuccess, trigger }: EditWallp
     try {
       const updateData = {
         title: formData.title,
+        description: formData.description,
         category: formData.category,
         tags: tagsList,
         resolution: formData.customResolution || formData.resolution,
@@ -178,6 +182,21 @@ export function EditWallpaperDialog({ wallpaper, onSuccess, trigger }: EditWallp
               placeholder="ENTER WALLPAPER TITLE"
               className="brutalist-border font-bold"
               required
+            />
+          </div>
+
+          {/* Description */}
+          <div className="space-y-2">
+            <Label htmlFor="edit-description" className="text-sm font-bold text-card-foreground">
+              DESCRIPTION
+            </Label>
+            <Textarea
+              id="edit-description"
+              value={formData.description}
+              onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
+              placeholder="ENTER WALLPAPER DESCRIPTION (OPTIONAL)"
+              className="brutalist-border font-bold resize-none"
+              rows={3}
             />
           </div>
 

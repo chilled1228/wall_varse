@@ -1,12 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { wallpaperService } from '@/lib/wallpaper-service'
 
-export async function GET(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
+export async function GET(request: NextRequest) {
   try {
-    const wallpaper = await wallpaperService.getWallpaperById(params.id)
+    const { searchParams } = new URL(request.url)
+    const id = searchParams.get('id')
+
+    if (!id) {
+      return NextResponse.json(
+        { error: 'Missing id parameter' },
+        { status: 400 }
+      )
+    }
+
+    const wallpaper = await wallpaperService.getWallpaperById(id)
 
     if (!wallpaper) {
       return NextResponse.json(

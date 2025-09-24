@@ -12,6 +12,7 @@ interface CSVRow {
   resolution?: string
   deviceType?: string
   customSlug?: string
+  description?: string
 }
 
 interface ImportResult {
@@ -145,6 +146,7 @@ export async function POST(request: NextRequest) {
           resolution: resolution,
           deviceType: deviceType,
           tags: tagsArray,
+          description: row.description || `${row.title} wallpaper in ${categorySlug} category`,
           fileSize: '0 MB', // Will be updated when image is processed
           createdAt: serverTimestamp(),
           updatedAt: serverTimestamp()

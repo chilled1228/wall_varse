@@ -400,11 +400,12 @@ function AdminDashboardContent() {
                       />
                       <div className="flex-1 grid grid-cols-12 gap-4 font-bold text-sm">
                         <div className="col-span-1">IMAGE</div>
-                        <div className="col-span-3">TITLE</div>
-                        <div className="col-span-2">CATEGORY</div>
+                        <div className="col-span-2">TITLE</div>
+                        <div className="col-span-3">DESCRIPTION</div>
+                        <div className="col-span-1">CATEGORY</div>
                         <div className="col-span-1">DOWNLOADS</div>
                         <div className="col-span-1">LIKES</div>
-                        <div className="col-span-2">RESOLUTION</div>
+                        <div className="col-span-1">RESOLUTION</div>
                         <div className="col-span-2">ACTIONS</div>
                       </div>
                     </div>
@@ -433,13 +434,20 @@ function AdminDashboardContent() {
                           </div>
 
                           {/* Title */}
-                          <div className="col-span-3">
+                          <div className="col-span-2">
                             <p className="font-bold text-sm truncate">{wallpaper.title}</p>
                             <p className="text-xs text-muted-foreground">{wallpaper.slug}</p>
                           </div>
 
+                          {/* Description */}
+                          <div className="col-span-3">
+                            <p className="text-xs text-muted-foreground line-clamp-2">
+                              {wallpaper.description || 'No description'}
+                            </p>
+                          </div>
+
                           {/* Category */}
-                          <div className="col-span-2">
+                          <div className="col-span-1">
                             <Badge className="brutalist-border text-xs">
                               {wallpaper.category.toUpperCase()}
                             </Badge>
@@ -462,7 +470,7 @@ function AdminDashboardContent() {
                           </div>
 
                           {/* Resolution */}
-                          <div className="col-span-2">
+                          <div className="col-span-1">
                             <span className="text-sm">{wallpaper.resolution}</span>
                             <p className="text-xs text-muted-foreground">{wallpaper.deviceType}</p>
                           </div>

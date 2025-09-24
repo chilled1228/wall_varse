@@ -37,6 +37,7 @@ const deviceTypes = [
 export function WallpaperForm({ onSuccess, onCancel }: WallpaperFormProps) {
   const [formData, setFormData] = useState({
     title: '',
+    description: '',
     category: '',
     tags: '',
     resolution: '1080x1920',
@@ -141,6 +142,7 @@ export function WallpaperForm({ onSuccess, onCancel }: WallpaperFormProps) {
       const uploadFormData = new FormData()
       uploadFormData.append('file', file)
       uploadFormData.append('title', formData.title)
+      uploadFormData.append('description', formData.description)
       uploadFormData.append('category', formData.category)
       uploadFormData.append('slug', slug)
       uploadFormData.append('tags', tagsList.join(','))
@@ -163,6 +165,7 @@ export function WallpaperForm({ onSuccess, onCancel }: WallpaperFormProps) {
         // Reset form
         setFormData({
           title: '',
+          description: '',
           category: '',
           tags: '',
           resolution: '1080x1920',
@@ -258,6 +261,21 @@ export function WallpaperForm({ onSuccess, onCancel }: WallpaperFormProps) {
             placeholder="ENTER WALLPAPER TITLE"
             className="brutalist-border font-bold"
             required
+          />
+        </div>
+
+        {/* Description */}
+        <div className="space-y-2">
+          <Label htmlFor="description" className="text-sm font-bold text-card-foreground">
+            DESCRIPTION
+          </Label>
+          <Textarea
+            id="description"
+            value={formData.description}
+            onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
+            placeholder="ENTER WALLPAPER DESCRIPTION (OPTIONAL)"
+            className="brutalist-border font-bold resize-none"
+            rows={3}
           />
         </div>
 

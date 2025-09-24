@@ -62,7 +62,7 @@ export class WallpaperService {
       return this.mapQuerySnapshotToWallpapers(querySnapshot)
     } catch (error) {
       // If the composite index is not available, fall back to getting all and filtering
-      if (error.code === 'failed-precondition') {
+      if (error && typeof error === 'object' && 'code' in error && error.code === 'failed-precondition') {
         console.warn('Composite index not available for category query, using fallback method')
         const allWallpapers = await this.getAllWallpapers()
         return allWallpapers.filter(wallpaper => wallpaper.category === category)

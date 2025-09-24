@@ -4,7 +4,7 @@ import { db } from './firebase'
 export interface Wallpaper {
   id: string
   title: string
-  slug: string
+  slug?: string
   category: string
   downloads: number
   likes: number
@@ -12,8 +12,10 @@ export interface Wallpaper {
   resolution: string
   deviceType: string
   tags: string[]
+  description?: string
   fileSize: string
   createdAt: Date
+  updatedAt?: Date
 }
 
 export const sampleWallpapers: Omit<Wallpaper, 'id'>[] = [

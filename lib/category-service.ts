@@ -213,7 +213,7 @@ export class CategoryService {
   }
 
   // Update category count when wallpapers are added/removed
-  async updateCategoryCount(slug: string, increment: number): Promise<void> {
+  async updateCategoryCount(slug: string, incrementValue: number): Promise<void> {
     try {
       // Only update counts for custom categories in database
       const isPredefined = this.predefinedCategories.some(cat => cat.slug === slug)
@@ -223,7 +223,7 @@ export class CategoryService {
 
       const docRef = doc(this.categoriesCollection, slug)
       await updateDoc(docRef, {
-        count: increment(increment)
+        count: increment(incrementValue)
       })
     } catch (error) {
       console.error('Error updating category count:', error)

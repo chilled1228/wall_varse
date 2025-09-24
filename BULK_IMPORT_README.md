@@ -22,13 +22,14 @@ The bulk import feature allows administrators to import multiple wallpapers at o
    - `resolution` - Image resolution (default: "1080x1920")
    - `deviceType` - Target device (default: "phone", can be "desktop", "tablet")
    - `customSlug` - Custom slug for the wallpaper (leave empty for auto-generation)
+   - `description` - Wallpaper description (auto-generated if not provided)
 
 3. **Sample CSV Format**
    ```csv
-   title,imageUrl,category,tags,resolution,deviceType,customSlug
-   SUNSET MOUNTAINS,https://example.com/image1.jpg,nature,"sunset,mountain",1080x1920,phone,sunset-mountains
-   GEOMETRIC PATTERN,https://example.com/image2.jpg,abstract,"geometric,modern",1080x1920,phone,
-   OCEAN WAVES,https://example.com/image3.jpg,nature,"ocean,blue",2560x1440,desktop,ocean-4k
+   title,imageUrl,category,tags,resolution,deviceType,customSlug,description
+   SUNSET MOUNTAINS,https://example.com/image1.jpg,nature,"sunset,mountain",1080x1920,phone,sunset-mountains,"Beautiful mountain sunrise with golden light"
+   GEOMETRIC PATTERN,https://example.com/image2.jpg,abstract,"geometric,modern",1080x1920,phone,,"Modern geometric shapes and patterns"
+   OCEAN WAVES,https://example.com/image3.jpg,nature,"ocean,blue",2560x1440,desktop,ocean-4k,"Peaceful ocean waves at sunset"
    ```
 
 ## Features

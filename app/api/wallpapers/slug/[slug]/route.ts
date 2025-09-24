@@ -4,11 +4,12 @@ import { extractIdFromSlug } from '@/lib/slug-utils'
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
+    const { slug } = await params
     // Extract ID from slug
-    const wallpaperId = extractIdFromSlug(params.slug)
+    const wallpaperId = extractIdFromSlug(slug)
 
     if (!wallpaperId) {
       return NextResponse.json(
@@ -23,7 +24,7 @@ export async function GET(
     // If not found by ID extraction, try to find by slug in database
     if (!wallpaper) {
       const allWallpapers = await wallpaperService.getAllWallpapers()
-      wallpaper = allWallpapers.find(w => w.slug === params.slug) || null
+      wallpaper = allWallpapers.find(w => w.slug === slug) || null
     }
 
     if (!wallpaper) {

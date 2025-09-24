@@ -5,15 +5,16 @@ import { SearchBar } from "@/components/search-bar"
 import type { Metadata } from "next"
 
 interface SearchPageProps {
-  searchParams: {
+  searchParams: Promise<{
     q?: string
     category?: string
-  }
+  }>
 }
 
 export async function generateMetadata({ searchParams }: SearchPageProps): Promise<Metadata> {
-  const query = searchParams.q || ""
-  const category = searchParams.category || ""
+  const params = await searchParams
+  const query = params.q || ""
+  const category = params.category || ""
 
   let title = "Search Results - WALLPAPER ZONE"
   let description = "Search results for wallpapers"
@@ -35,9 +36,10 @@ export async function generateMetadata({ searchParams }: SearchPageProps): Promi
   }
 }
 
-export default function SearchPage({ searchParams }: SearchPageProps) {
-  const query = searchParams.q || ""
-  const category = searchParams.category || ""
+export default async function SearchPage({ searchParams }: SearchPageProps) {
+  const params = await searchParams
+  const query = params.q || ""
+  const category = params.category || ""
 
   return (
     <div className="min-h-screen bg-background">

@@ -4,10 +4,11 @@ import { getCategoryKeyBySlug, getCategoryBySlug } from '@/lib/slug-utils'
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
-    const categoryKey = getCategoryKeyBySlug(params.slug)
+    const { slug } = await params
+    const categoryKey = getCategoryKeyBySlug(slug)
 
     if (!categoryKey) {
       return NextResponse.json(
@@ -29,7 +30,7 @@ export async function GET(
     const paginatedWallpapers = wallpapers.slice(startIndex, endIndex)
 
     // Get category metadata
-    const categoryData = getCategoryBySlug(params.slug)
+    const categoryData = getCategoryBySlug(slug)
 
     return NextResponse.json({
       success: true,

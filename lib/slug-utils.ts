@@ -178,12 +178,12 @@ export function parseWallpaperUrl(pathname: string): {
         // Category + wallpaper pattern
         const [, categorySlug, wallpaperSlug] = match
         const wallpaperId = extractIdFromSlug(wallpaperSlug)
-        return { categorySlug, wallpaperSlug, wallpaperId }
+        return { categorySlug, wallpaperSlug, wallpaperId: wallpaperId || undefined }
       } else {
         // Direct wallpaper pattern
         const [, wallpaperSlug] = match
         const wallpaperId = extractIdFromSlug(wallpaperSlug)
-        return { wallpaperSlug, wallpaperId }
+        return { wallpaperSlug, wallpaperId: wallpaperId || undefined }
       }
     }
   }
