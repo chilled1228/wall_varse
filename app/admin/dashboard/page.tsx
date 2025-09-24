@@ -19,7 +19,10 @@ import {
   Eye,
   Plus,
   UserCheck,
-  UserX
+  UserX,
+  Trash2,
+  CheckSquare,
+  Square
 } from "lucide-react"
 import { useAdmin } from "@/contexts/admin-context"
 import { useToast } from "@/hooks/use-toast"
@@ -29,6 +32,7 @@ import { WallpaperForm } from "@/components/admin/wallpaper-form"
 import { EditWallpaperDialog } from "@/components/admin/edit-wallpaper-dialog"
 import { DeleteWallpaperDialog } from "@/components/admin/delete-wallpaper-dialog"
 import { BulkImportDialog } from "@/components/admin/bulk-import-dialog"
+import { Checkbox } from "@/components/ui/checkbox"
 
 function AdminDashboardContent() {
   const router = useRouter()
@@ -40,6 +44,8 @@ function AdminDashboardContent() {
   const [loadingWallpapers, setLoadingWallpapers] = useState(true)
   const [loadingUsers, setLoadingUsers] = useState(true)
   const [showUploadForm, setShowUploadForm] = useState(false)
+  const [selectedWallpapers, setSelectedWallpapers] = useState<Set<string>>(new Set())
+  const [bulkDeleteLoading, setBulkDeleteLoading] = useState(false)
   const [stats, setStats] = useState({
     totalWallpapers: 0,
     totalDownloads: 0,
@@ -154,7 +160,75 @@ function AdminDashboardContent() {
 
   const handleWallpaperDeleted = (deletedId: string) => {
     setWallpapers(prev => prev.filter(w => w.id !== deletedId))
+    setSelectedWallpapers(prev => {
+      const newSet = new Set(prev)
+      newSet.delete(deletedId)
+      return newSet
+    })
     loadWallpapers() // Refresh stats
+  }
+
+  const handleSelectWallpaper = (wallpaperId: string, selected: boolean) => {
+    setSelectedWallpapers(prev => {
+      const newSet = new Set(prev)
+      if (selected) {
+        newSet.add(wallpaperId)
+      } else {
+        newSet.delete(wallpaperId)
+      }
+      return newSet
+    })
+  }
+
+  const handleSelectAll = (selected: boolean) => {
+    if (selected) {
+      setSelectedWallpapers(new Set(wallpapers.map(w => w.id)))
+    } else {
+      setSelectedWallpapers(new Set())
+    }
+  }
+
+  const handleBulkDelete = async () => {
+    if (selectedWallpapers.size === 0) return
+
+    const confirmed = window.confirm(
+      `Are you sure you want to delete ${selectedWallpapers.size} wallpaper(s)? This action cannot be undone.`
+    )
+
+    if (!confirmed) return
+
+    setBulkDeleteLoading(true)
+    try {
+      const deletePromises = Array.from(selectedWallpapers).map(async (wallpaperId) => {
+        const response = await fetch(`/api/admin/wallpapers/${wallpaperId}`, {
+          method: 'DELETE'
+        })
+        if (!response.ok) {
+          throw new Error(`Failed to delete wallpaper ${wallpaperId}`)
+        }
+        return wallpaperId
+      })
+
+      await Promise.all(deletePromises)
+
+      setWallpapers(prev => prev.filter(w => !selectedWallpapers.has(w.id)))
+      setSelectedWallpapers(new Set())
+      loadWallpapers() // Refresh stats
+
+      toast({
+        title: "BULK DELETE SUCCESSFUL",
+        description: `Successfully deleted ${selectedWallpapers.size} wallpaper(s)`,
+      })
+    } catch (error) {
+      console.error('Bulk delete error:', error)
+      toast({
+        title: "BULK DELETE FAILED",
+        description: "Some wallpapers could not be deleted",
+        variant: "destructive",
+      })
+    } finally {
+      setBulkDeleteLoading(false)
+    }
   }
 
   const handleSignOut = async () => {
@@ -285,6 +359,21 @@ function AdminDashboardContent() {
                   <div className="flex items-center justify-between mb-6">
                     <h2 className="text-xl font-black text-card-foreground">WALLPAPER MANAGEMENT</h2>
                     <div className="flex gap-2">
+                      {selectedWallpapers.size > 0 && (
+                        <Button
+                          variant="destructive"
+                          onClick={handleBulkDelete}
+                          disabled={bulkDeleteLoading}
+                          className="brutalist-border font-black"
+                        >
+                          {bulkDeleteLoading ? (
+                            <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                          ) : (
+                            <Trash2 className="h-4 w-4 mr-2" />
+                          )}
+                          DELETE ({selectedWallpapers.size})
+                        </Button>
+                      )}
                       <BulkImportDialog onSuccess={loadWallpapers} />
                       <Button
                         onClick={() => setShowUploadForm(true)}
@@ -302,34 +391,84 @@ function AdminDashboardContent() {
                     <p className="text-muted-foreground">Loading wallpapers...</p>
                   </div>
                 ) : (
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="space-y-2">
+                    {/* Select All Header */}
+                    <div className="flex items-center gap-3 p-3 bg-muted rounded brutalist-border">
+                      <Checkbox
+                        checked={selectedWallpapers.size === wallpapers.length && wallpapers.length > 0}
+                        onCheckedChange={handleSelectAll}
+                      />
+                      <div className="flex-1 grid grid-cols-12 gap-4 font-bold text-sm">
+                        <div className="col-span-1">IMAGE</div>
+                        <div className="col-span-3">TITLE</div>
+                        <div className="col-span-2">CATEGORY</div>
+                        <div className="col-span-1">DOWNLOADS</div>
+                        <div className="col-span-1">LIKES</div>
+                        <div className="col-span-2">RESOLUTION</div>
+                        <div className="col-span-2">ACTIONS</div>
+                      </div>
+                    </div>
+
+                    {/* Wallpaper List */}
                     {wallpapers.map((wallpaper) => (
-                      <Card key={wallpaper.id} className="brutalist-border bg-card">
-                        <div className="relative aspect-[2/3] overflow-hidden">
-                          <img
-                            src={wallpaper.imageUrl}
-                            alt={wallpaper.title}
-                            className="w-full h-full object-cover"
-                          />
-                          <div className="absolute top-2 right-2">
-                            <Badge className="brutalist-border bg-secondary text-secondary-foreground">
+                      <div
+                        key={wallpaper.id}
+                        className={`flex items-center gap-3 p-3 rounded brutalist-border bg-card hover:bg-muted/50 transition-colors ${
+                          selectedWallpapers.has(wallpaper.id) ? 'bg-blue-50 border-blue-300' : ''
+                        }`}
+                      >
+                        <Checkbox
+                          checked={selectedWallpapers.has(wallpaper.id)}
+                          onCheckedChange={(checked) => handleSelectWallpaper(wallpaper.id, checked as boolean)}
+                        />
+
+                        <div className="flex-1 grid grid-cols-12 gap-4 items-center">
+                          {/* Thumbnail */}
+                          <div className="col-span-1">
+                            <img
+                              src={wallpaper.imageUrl}
+                              alt={wallpaper.title}
+                              className="w-12 h-16 object-cover rounded brutalist-border"
+                            />
+                          </div>
+
+                          {/* Title */}
+                          <div className="col-span-3">
+                            <p className="font-bold text-sm truncate">{wallpaper.title}</p>
+                            <p className="text-xs text-muted-foreground">{wallpaper.slug}</p>
+                          </div>
+
+                          {/* Category */}
+                          <div className="col-span-2">
+                            <Badge className="brutalist-border text-xs">
                               {wallpaper.category.toUpperCase()}
                             </Badge>
                           </div>
-                        </div>
-                        <div className="p-4">
-                          <h3 className="font-black text-card-foreground mb-2">{wallpaper.title}</h3>
-                          <div className="flex justify-between text-sm text-muted-foreground mb-3">
-                            <span className="flex items-center gap-1">
+
+                          {/* Downloads */}
+                          <div className="col-span-1">
+                            <span className="flex items-center gap-1 text-sm">
                               <Download className="h-3 w-3" />
                               {wallpaper.downloads.toLocaleString()}
                             </span>
-                            <span className="flex items-center gap-1">
+                          </div>
+
+                          {/* Likes */}
+                          <div className="col-span-1">
+                            <span className="flex items-center gap-1 text-sm">
                               <Heart className="h-3 w-3" />
                               {wallpaper.likes}
                             </span>
                           </div>
-                          <div className="flex gap-2">
+
+                          {/* Resolution */}
+                          <div className="col-span-2">
+                            <span className="text-sm">{wallpaper.resolution}</span>
+                            <p className="text-xs text-muted-foreground">{wallpaper.deviceType}</p>
+                          </div>
+
+                          {/* Actions */}
+                          <div className="col-span-2 flex gap-1">
                             <EditWallpaperDialog
                               wallpaper={wallpaper}
                               onSuccess={handleWallpaperUpdated}
@@ -340,7 +479,7 @@ function AdminDashboardContent() {
                             />
                           </div>
                         </div>
-                      </Card>
+                      </div>
                     ))}
                   </div>
                 )}
