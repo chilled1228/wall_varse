@@ -28,6 +28,7 @@ import { adminService, type AdminUser } from "@/lib/admin-service"
 import { WallpaperForm } from "@/components/admin/wallpaper-form"
 import { EditWallpaperDialog } from "@/components/admin/edit-wallpaper-dialog"
 import { DeleteWallpaperDialog } from "@/components/admin/delete-wallpaper-dialog"
+import { BulkImportDialog } from "@/components/admin/bulk-import-dialog"
 
 function AdminDashboardContent() {
   const router = useRouter()
@@ -283,13 +284,16 @@ function AdminDashboardContent() {
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-6">
                     <h2 className="text-xl font-black text-card-foreground">WALLPAPER MANAGEMENT</h2>
-                    <Button
-                      onClick={() => setShowUploadForm(true)}
-                      className="brutalist-border brutalist-shadow font-black"
-                    >
-                      <Plus className="h-4 w-4 mr-2" />
-                      ADD WALLPAPER
-                    </Button>
+                    <div className="flex gap-2">
+                      <BulkImportDialog onSuccess={loadWallpapers} />
+                      <Button
+                        onClick={() => setShowUploadForm(true)}
+                        className="brutalist-border brutalist-shadow font-black"
+                      >
+                        <Plus className="h-4 w-4 mr-2" />
+                        ADD WALLPAPER
+                      </Button>
+                    </div>
                   </div>
 
                 {loadingWallpapers ? (

@@ -333,6 +333,47 @@ export class WallpaperService {
     }
   }
 
+  // Bulk import wallpapers from CSV data
+  async bulkImportWallpapers(csvFile: File): Promise<{
+    success: boolean
+    summary?: {
+      totalRows: number
+      successful: number
+      failed: number
+      newCategoriesCreated: number
+    }
+    results?: any[]
+    createdCategories?: string[]
+    error?: string
+  }> {
+    try {
+      const formData = new FormData()
+      formData.append('file', csvFile)
+
+      const response = await fetch('/api/admin/wallpapers/bulk-import', {
+        method: 'POST',
+        body: formData
+      })
+
+      if (!response.ok) {
+        const errorData = await response.json()
+        return {
+          success: false,
+          error: errorData.error || 'Failed to import wallpapers'
+        }
+      }
+
+      const result = await response.json()
+      return result
+    } catch (error) {
+      console.error('Error in bulk import:', error)
+      return {
+        success: false,
+        error: 'Network error during import'
+      }
+    }
+  }
+
   // Helper method to map Firestore query snapshot to wallpaper objects
   private mapQuerySnapshotToWallpapers(querySnapshot: QuerySnapshot<DocumentData>): WallpaperWithId[] {
     return querySnapshot.docs.map(doc => ({

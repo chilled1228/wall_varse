@@ -1,0 +1,11 @@
+title,imageUrl,category,tags,resolution,deviceType,customSlug
+SUNSET MOUNTAINS,https://picsum.photos/400/600?random=1,nature,"sunset,mountain,landscape,golden",1080x1920,phone,sunset-mountains
+GEOMETRIC PATTERN,https://picsum.photos/400/600?random=2,abstract,"geometric,pattern,modern,design",1080x1920,phone,
+OCEAN WAVES,https://picsum.photos/400/600?random=3,nature,"ocean,waves,blue,peaceful",2560x1440,desktop,ocean-waves-4k
+NEON CITY LIGHTS,https://picsum.photos/400/600?random=4,urban,"neon,city,lights,cyberpunk",1080x1920,phone,
+MINIMALIST DESIGN,https://picsum.photos/400/600?random=5,minimal,"clean,simple,white,modern",1080x1920,phone,minimalist-white
+SPACE GALAXY,https://picsum.photos/400/600?random=6,space,"galaxy,stars,cosmos,purple",1080x1920,phone,
+FOREST PATH,https://picsum.photos/400/600?random=7,nature,"forest,path,green,trees",1080x1920,phone,forest-walking-path
+VINTAGE CAR,https://picsum.photos/400/600?random=8,automotive,"vintage,car,classic,retro",2560x1440,desktop,
+MODERN ARCHITECTURE,https://picsum.photos/400/600?random=9,architecture,"modern,building,glass,steel",1080x1920,phone,
+ABSTRACT ART,https://picsum.photos/400/600?random=10,abstract,"art,colorful,creative,brush",1080x1920,phone,abstract-brush-art

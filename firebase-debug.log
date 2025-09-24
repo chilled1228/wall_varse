@@ -1372,3 +1372,266 @@
 [debug] [2025-09-24T04:58:18.037Z] > authorizing via signed-in user (bipul281c@gmail.com)
 [debug] [2025-09-24T04:58:18.042Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasecrashlytics.googleapis.com 200
 [debug] [2025-09-24T04:58:18.042Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasecrashlytics.googleapis.com [omitted]
+[debug] [2025-09-24T05:55:53.026Z] Checked if tokens are valid: false, expires at: 1758693273993
+[debug] [2025-09-24T05:55:53.027Z] Checked if tokens are valid: false, expires at: 1758693273993
+[debug] [2025-09-24T05:55:53.027Z] > refreshing access token with scopes: []
+[debug] [2025-09-24T05:55:53.028Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-09-24T05:55:53.028Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-24T05:55:53.044Z] Checked if tokens are valid: false, expires at: 1758693273993
+[debug] [2025-09-24T05:55:53.044Z] Checked if tokens are valid: false, expires at: 1758693273993
+[debug] [2025-09-24T05:55:53.044Z] > refreshing access token with scopes: []
+[debug] [2025-09-24T05:55:53.044Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-09-24T05:55:53.044Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-24T05:55:53.045Z] Checked if tokens are valid: false, expires at: 1758693273993
+[debug] [2025-09-24T05:55:53.045Z] Checked if tokens are valid: false, expires at: 1758693273993
+[debug] [2025-09-24T05:55:53.045Z] > refreshing access token with scopes: []
+[debug] [2025-09-24T05:55:53.045Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-09-24T05:55:53.045Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-24T05:55:53.046Z] Checked if tokens are valid: false, expires at: 1758693273993
+[debug] [2025-09-24T05:55:53.046Z] Checked if tokens are valid: false, expires at: 1758693273993
+[debug] [2025-09-24T05:55:53.046Z] > refreshing access token with scopes: []
+[debug] [2025-09-24T05:55:53.046Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-09-24T05:55:53.046Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-24T05:55:53.046Z] Checked if tokens are valid: false, expires at: 1758693273993
+[debug] [2025-09-24T05:55:53.046Z] Checked if tokens are valid: false, expires at: 1758693273993
+[debug] [2025-09-24T05:55:53.046Z] > refreshing access token with scopes: []
+[debug] [2025-09-24T05:55:53.046Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-09-24T05:55:53.046Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-24T05:55:53.059Z] Checked if tokens are valid: false, expires at: 1758693273993
+[debug] [2025-09-24T05:55:53.059Z] Checked if tokens are valid: false, expires at: 1758693273993
+[debug] [2025-09-24T05:55:53.059Z] > refreshing access token with scopes: []
+[debug] [2025-09-24T05:55:53.060Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-09-24T05:55:53.060Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-24T05:55:53.060Z] Checked if tokens are valid: false, expires at: 1758693273993
+[debug] [2025-09-24T05:55:53.060Z] Checked if tokens are valid: false, expires at: 1758693273993
+[debug] [2025-09-24T05:55:53.060Z] > refreshing access token with scopes: []
+[debug] [2025-09-24T05:55:53.060Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-09-24T05:55:53.060Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-24T05:55:53.060Z] Checked if tokens are valid: false, expires at: 1758693273993
+[debug] [2025-09-24T05:55:53.060Z] Checked if tokens are valid: false, expires at: 1758693273993
+[debug] [2025-09-24T05:55:53.060Z] > refreshing access token with scopes: []
+[debug] [2025-09-24T05:55:53.060Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-09-24T05:55:53.060Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-24T05:55:53.061Z] Checked if tokens are valid: false, expires at: 1758693273993
+[debug] [2025-09-24T05:55:53.061Z] Checked if tokens are valid: false, expires at: 1758693273993
+[debug] [2025-09-24T05:55:53.061Z] > refreshing access token with scopes: []
+[debug] [2025-09-24T05:55:53.062Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-09-24T05:55:53.062Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-24T05:55:53.062Z] Checked if tokens are valid: false, expires at: 1758693273993
+[debug] [2025-09-24T05:55:53.062Z] Checked if tokens are valid: false, expires at: 1758693273993
+[debug] [2025-09-24T05:55:53.062Z] > refreshing access token with scopes: []
+[debug] [2025-09-24T05:55:53.062Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-09-24T05:55:53.062Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-24T05:55:53.062Z] Checked if tokens are valid: false, expires at: 1758693273993
+[debug] [2025-09-24T05:55:53.062Z] Checked if tokens are valid: false, expires at: 1758693273993
+[debug] [2025-09-24T05:55:53.062Z] > refreshing access token with scopes: []
+[debug] [2025-09-24T05:55:53.062Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-09-24T05:55:53.062Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-24T05:55:53.063Z] Checked if tokens are valid: false, expires at: 1758693273993
+[debug] [2025-09-24T05:55:53.063Z] Checked if tokens are valid: false, expires at: 1758693273993
+[debug] [2025-09-24T05:55:53.063Z] > refreshing access token with scopes: []
+[debug] [2025-09-24T05:55:53.063Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-09-24T05:55:53.063Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-24T05:55:53.063Z] Checked if tokens are valid: false, expires at: 1758693273993
+[debug] [2025-09-24T05:55:53.063Z] Checked if tokens are valid: false, expires at: 1758693273993
+[debug] [2025-09-24T05:55:53.063Z] > refreshing access token with scopes: []
+[debug] [2025-09-24T05:55:53.063Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-09-24T05:55:53.063Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-24T05:55:53.063Z] Checked if tokens are valid: false, expires at: 1758693273993
+[debug] [2025-09-24T05:55:53.063Z] Checked if tokens are valid: false, expires at: 1758693273993
+[debug] [2025-09-24T05:55:53.063Z] > refreshing access token with scopes: []
+[debug] [2025-09-24T05:55:53.063Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-09-24T05:55:53.063Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-24T05:55:53.063Z] Checked if tokens are valid: false, expires at: 1758693273993
+[debug] [2025-09-24T05:55:53.063Z] Checked if tokens are valid: false, expires at: 1758693273993
+[debug] [2025-09-24T05:55:53.063Z] > refreshing access token with scopes: []
+[debug] [2025-09-24T05:55:53.063Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-09-24T05:55:53.063Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-24T05:55:53.180Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-09-24T05:55:53.180Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-24T05:55:53.193Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasedataconnect.googleapis.com [none]
+[debug] [2025-09-24T05:55:53.193Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasedataconnect.googleapis.com x-goog-quota-user=projects/wallpaperverce
+[debug] [2025-09-24T05:55:53.198Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-09-24T05:55:53.198Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-24T05:55:53.207Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/ [none]
+[debug] [2025-09-24T05:55:53.207Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/ x-goog-quota-user=projects/wallpaperverce
+[debug] [2025-09-24T05:55:53.208Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-09-24T05:55:53.208Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-24T05:55:53.216Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasecrashlytics.googleapis.com [none]
+[debug] [2025-09-24T05:55:53.217Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasecrashlytics.googleapis.com x-goog-quota-user=projects/wallpaperverce
+[debug] [2025-09-24T05:55:53.217Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-09-24T05:55:53.217Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-24T05:55:53.226Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseio.com [none]
+[debug] [2025-09-24T05:55:53.226Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseio.com x-goog-quota-user=projects/wallpaperverce
+[debug] [2025-09-24T05:55:53.227Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-09-24T05:55:53.227Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-24T05:55:53.236Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasecrashlytics.googleapis.com [none]
+[debug] [2025-09-24T05:55:53.236Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasecrashlytics.googleapis.com x-goog-quota-user=projects/wallpaperverce
+[debug] [2025-09-24T05:55:53.237Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-09-24T05:55:53.237Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-24T05:55:53.247Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseapphosting.googleapis.com [none]
+[debug] [2025-09-24T05:55:53.247Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseapphosting.googleapis.com x-goog-quota-user=projects/wallpaperverce
+[debug] [2025-09-24T05:55:53.248Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-09-24T05:55:53.248Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-24T05:55:53.257Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasedataconnect.googleapis.com [none]
+[debug] [2025-09-24T05:55:53.258Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasedataconnect.googleapis.com x-goog-quota-user=projects/wallpaperverce
+[debug] [2025-09-24T05:55:53.258Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-09-24T05:55:53.258Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-24T05:55:53.269Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseapphosting.googleapis.com [none]
+[debug] [2025-09-24T05:55:53.269Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseapphosting.googleapis.com x-goog-quota-user=projects/wallpaperverce
+[debug] [2025-09-24T05:55:53.269Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-09-24T05:55:53.269Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-24T05:55:53.279Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseio.com [none]
+[debug] [2025-09-24T05:55:53.279Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseio.com x-goog-quota-user=projects/wallpaperverce
+[debug] [2025-09-24T05:55:53.280Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-09-24T05:55:53.280Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-24T05:55:53.290Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseapphosting.googleapis.com [none]
+[debug] [2025-09-24T05:55:53.291Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseapphosting.googleapis.com x-goog-quota-user=projects/wallpaperverce
+[debug] [2025-09-24T05:55:53.292Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-09-24T05:55:53.292Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-24T05:55:53.303Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasedataconnect.googleapis.com [none]
+[debug] [2025-09-24T05:55:53.303Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasedataconnect.googleapis.com x-goog-quota-user=projects/wallpaperverce
+[debug] [2025-09-24T05:55:53.304Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-09-24T05:55:53.304Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-24T05:55:53.313Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/ [none]
+[debug] [2025-09-24T05:55:53.313Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/ x-goog-quota-user=projects/wallpaperverce
+[debug] [2025-09-24T05:55:53.314Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-09-24T05:55:53.314Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-24T05:55:53.322Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/ [none]
+[debug] [2025-09-24T05:55:53.322Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/ x-goog-quota-user=projects/wallpaperverce
+[debug] [2025-09-24T05:55:53.337Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-09-24T05:55:53.337Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-24T05:55:53.346Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasecrashlytics.googleapis.com [none]
+[debug] [2025-09-24T05:55:53.346Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasecrashlytics.googleapis.com x-goog-quota-user=projects/wallpaperverce
+[debug] [2025-09-24T05:55:53.348Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-09-24T05:55:53.348Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-09-24T05:55:53.358Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseio.com [none]
+[debug] [2025-09-24T05:55:53.358Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseio.com x-goog-quota-user=projects/wallpaperverce
+[debug] [2025-09-24T05:55:54.950Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseio.com 403
+[debug] [2025-09-24T05:55:54.950Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseio.com [omitted]
+[debug] [2025-09-24T05:55:54.994Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseio.com 403
+[debug] [2025-09-24T05:55:54.994Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseio.com [omitted]
+[debug] [2025-09-24T05:55:54.995Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasedataconnect.googleapis.com 200
+[debug] [2025-09-24T05:55:54.995Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2025-09-24T05:55:54.995Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseapphosting.googleapis.com 200
+[debug] [2025-09-24T05:55:54.995Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2025-09-24T05:55:54.997Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseio.com 403
+[debug] [2025-09-24T05:55:54.997Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseio.com [omitted]
+[debug] [2025-09-24T05:55:55.000Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseapphosting.googleapis.com 200
+[debug] [2025-09-24T05:55:55.000Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2025-09-24T05:55:55.007Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasecrashlytics.googleapis.com 200
+[debug] [2025-09-24T05:55:55.007Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasecrashlytics.googleapis.com [omitted]
+[debug] [2025-09-24T05:55:55.024Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasedataconnect.googleapis.com 200
+[debug] [2025-09-24T05:55:55.024Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2025-09-24T05:55:55.028Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasedataconnect.googleapis.com 200
+[debug] [2025-09-24T05:55:55.028Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2025-09-24T05:55:55.028Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseapphosting.googleapis.com 200
+[debug] [2025-09-24T05:55:55.028Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2025-09-24T05:55:55.029Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasecrashlytics.googleapis.com 200
+[debug] [2025-09-24T05:55:55.029Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasecrashlytics.googleapis.com [omitted]
+[debug] [2025-09-24T05:55:55.091Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasecrashlytics.googleapis.com 200
+[debug] [2025-09-24T05:55:55.091Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasecrashlytics.googleapis.com [omitted]
+[debug] [2025-09-24T05:55:55.125Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/ 200
+[debug] [2025-09-24T05:55:55.126Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/ [omitted]
+[debug] [2025-09-24T05:55:55.139Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-09-24T05:55:55.139Z] > authorizing via signed-in user (bipul281c@gmail.com)
+[debug] [2025-09-24T05:55:55.371Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/ 200
+[debug] [2025-09-24T05:55:55.371Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/ [omitted]
+[debug] [2025-09-24T05:55:55.374Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-09-24T05:55:55.375Z] > authorizing via signed-in user (bipul281c@gmail.com)
+[debug] [2025-09-24T05:55:55.491Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/ 200
+[debug] [2025-09-24T05:55:55.492Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/ [omitted]
+[debug] [2025-09-24T06:01:14.467Z] Checked if tokens are valid: true, expires at: 1758696952348
+[debug] [2025-09-24T06:01:14.468Z] Checked if tokens are valid: true, expires at: 1758696952348
+[debug] [2025-09-24T06:01:14.468Z] Checked if tokens are valid: true, expires at: 1758696952348
+[debug] [2025-09-24T06:01:14.468Z] Checked if tokens are valid: true, expires at: 1758696952348
+[debug] [2025-09-24T06:01:14.469Z] Checked if tokens are valid: true, expires at: 1758696952348
+[debug] [2025-09-24T06:01:14.469Z] Checked if tokens are valid: true, expires at: 1758696952348
+[debug] [2025-09-24T06:01:14.469Z] Checked if tokens are valid: true, expires at: 1758696952348
+[debug] [2025-09-24T06:01:14.469Z] Checked if tokens are valid: true, expires at: 1758696952348
+[debug] [2025-09-24T06:01:14.469Z] Checked if tokens are valid: true, expires at: 1758696952348
+[debug] [2025-09-24T06:01:14.469Z] Checked if tokens are valid: true, expires at: 1758696952348
+[debug] [2025-09-24T06:01:14.470Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/ [none]
+[debug] [2025-09-24T06:01:14.470Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/ x-goog-quota-user=projects/wallpaperverce
+[debug] [2025-09-24T06:01:14.485Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasedataconnect.googleapis.com [none]
+[debug] [2025-09-24T06:01:14.485Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasedataconnect.googleapis.com x-goog-quota-user=projects/wallpaperverce
+[debug] [2025-09-24T06:01:14.486Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasecrashlytics.googleapis.com [none]
+[debug] [2025-09-24T06:01:14.486Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasecrashlytics.googleapis.com x-goog-quota-user=projects/wallpaperverce
+[debug] [2025-09-24T06:01:14.486Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseapphosting.googleapis.com [none]
+[debug] [2025-09-24T06:01:14.486Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseapphosting.googleapis.com x-goog-quota-user=projects/wallpaperverce
+[debug] [2025-09-24T06:01:14.487Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseio.com [none]
+[debug] [2025-09-24T06:01:14.487Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseio.com x-goog-quota-user=projects/wallpaperverce
+[debug] [2025-09-24T06:01:14.500Z] Checked if tokens are valid: true, expires at: 1758696952348
+[debug] [2025-09-24T06:01:14.500Z] Checked if tokens are valid: true, expires at: 1758696952348
+[debug] [2025-09-24T06:01:14.500Z] Checked if tokens are valid: true, expires at: 1758696952348
+[debug] [2025-09-24T06:01:14.500Z] Checked if tokens are valid: true, expires at: 1758696952348
+[debug] [2025-09-24T06:01:14.500Z] Checked if tokens are valid: true, expires at: 1758696952348
+[debug] [2025-09-24T06:01:14.500Z] Checked if tokens are valid: true, expires at: 1758696952348
+[debug] [2025-09-24T06:01:14.500Z] Checked if tokens are valid: true, expires at: 1758696952348
+[debug] [2025-09-24T06:01:14.500Z] Checked if tokens are valid: true, expires at: 1758696952348
+[debug] [2025-09-24T06:01:14.500Z] Checked if tokens are valid: true, expires at: 1758696952348
+[debug] [2025-09-24T06:01:14.500Z] Checked if tokens are valid: true, expires at: 1758696952348
+[debug] [2025-09-24T06:01:14.500Z] Checked if tokens are valid: true, expires at: 1758696952348
+[debug] [2025-09-24T06:01:14.500Z] Checked if tokens are valid: true, expires at: 1758696952348
+[debug] [2025-09-24T06:01:14.500Z] Checked if tokens are valid: true, expires at: 1758696952348
+[debug] [2025-09-24T06:01:14.500Z] Checked if tokens are valid: true, expires at: 1758696952348
+[debug] [2025-09-24T06:01:14.500Z] Checked if tokens are valid: true, expires at: 1758696952348
+[debug] [2025-09-24T06:01:14.500Z] Checked if tokens are valid: true, expires at: 1758696952348
+[debug] [2025-09-24T06:01:14.500Z] Checked if tokens are valid: true, expires at: 1758696952348
+[debug] [2025-09-24T06:01:14.500Z] Checked if tokens are valid: true, expires at: 1758696952348
+[debug] [2025-09-24T06:01:14.500Z] Checked if tokens are valid: true, expires at: 1758696952348
+[debug] [2025-09-24T06:01:14.500Z] Checked if tokens are valid: true, expires at: 1758696952348
+[debug] [2025-09-24T06:01:14.501Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/ [none]
+[debug] [2025-09-24T06:01:14.501Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/ x-goog-quota-user=projects/wallpaperverce
+[debug] [2025-09-24T06:01:14.501Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasedataconnect.googleapis.com [none]
+[debug] [2025-09-24T06:01:14.501Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasedataconnect.googleapis.com x-goog-quota-user=projects/wallpaperverce
+[debug] [2025-09-24T06:01:14.501Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasecrashlytics.googleapis.com [none]
+[debug] [2025-09-24T06:01:14.501Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasecrashlytics.googleapis.com x-goog-quota-user=projects/wallpaperverce
+[debug] [2025-09-24T06:01:14.502Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseapphosting.googleapis.com [none]
+[debug] [2025-09-24T06:01:14.502Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseapphosting.googleapis.com x-goog-quota-user=projects/wallpaperverce
+[debug] [2025-09-24T06:01:14.503Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseio.com [none]
+[debug] [2025-09-24T06:01:14.503Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseio.com x-goog-quota-user=projects/wallpaperverce
+[debug] [2025-09-24T06:01:14.503Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/ [none]
+[debug] [2025-09-24T06:01:14.503Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/ x-goog-quota-user=projects/wallpaperverce
+[debug] [2025-09-24T06:01:14.503Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasedataconnect.googleapis.com [none]
+[debug] [2025-09-24T06:01:14.503Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasedataconnect.googleapis.com x-goog-quota-user=projects/wallpaperverce
+[debug] [2025-09-24T06:01:14.503Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasecrashlytics.googleapis.com [none]
+[debug] [2025-09-24T06:01:14.503Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasecrashlytics.googleapis.com x-goog-quota-user=projects/wallpaperverce
+[debug] [2025-09-24T06:01:14.503Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseapphosting.googleapis.com [none]
+[debug] [2025-09-24T06:01:14.503Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseapphosting.googleapis.com x-goog-quota-user=projects/wallpaperverce
+[debug] [2025-09-24T06:01:14.503Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseio.com [none]
+[debug] [2025-09-24T06:01:14.503Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseio.com x-goog-quota-user=projects/wallpaperverce
+[debug] [2025-09-24T06:01:14.901Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseapphosting.googleapis.com 200
+[debug] [2025-09-24T06:01:14.902Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2025-09-24T06:01:16.160Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseio.com 403
+[debug] [2025-09-24T06:01:16.161Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseio.com [omitted]
+[debug] [2025-09-24T06:01:16.164Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseio.com 403
+[debug] [2025-09-24T06:01:16.164Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseio.com [omitted]
+[debug] [2025-09-24T06:01:16.175Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseio.com 403
+[debug] [2025-09-24T06:01:16.175Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseio.com [omitted]
+[debug] [2025-09-24T06:01:16.200Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasecrashlytics.googleapis.com 200
+[debug] [2025-09-24T06:01:16.200Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasecrashlytics.googleapis.com [omitted]
+[debug] [2025-09-24T06:01:16.202Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasedataconnect.googleapis.com 200
+[debug] [2025-09-24T06:01:16.202Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2025-09-24T06:01:16.202Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasecrashlytics.googleapis.com 200
+[debug] [2025-09-24T06:01:16.202Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasecrashlytics.googleapis.com [omitted]
+[debug] [2025-09-24T06:01:16.209Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasedataconnect.googleapis.com 200
+[debug] [2025-09-24T06:01:16.209Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2025-09-24T06:01:16.212Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasecrashlytics.googleapis.com 200
+[debug] [2025-09-24T06:01:16.213Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasecrashlytics.googleapis.com [omitted]
+[debug] [2025-09-24T06:01:16.223Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasedataconnect.googleapis.com 200
+[debug] [2025-09-24T06:01:16.223Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2025-09-24T06:01:16.251Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseapphosting.googleapis.com 200
+[debug] [2025-09-24T06:01:16.251Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2025-09-24T06:01:16.258Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseapphosting.googleapis.com 200
+[debug] [2025-09-24T06:01:16.258Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2025-09-24T06:01:16.266Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/ 200
+[debug] [2025-09-24T06:01:16.266Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/ [omitted]
+[debug] [2025-09-24T06:01:16.280Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-09-24T06:01:16.281Z] > authorizing via signed-in user (bipul281c@gmail.com)
+[debug] [2025-09-24T06:01:16.546Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/ 200
+[debug] [2025-09-24T06:01:16.547Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/ [omitted]
+[debug] [2025-09-24T06:01:16.550Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-09-24T06:01:16.550Z] > authorizing via signed-in user (bipul281c@gmail.com)
+[debug] [2025-09-24T06:01:16.605Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/ 200
+[debug] [2025-09-24T06:01:16.605Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/wallpaperverce/services/ [omitted]
