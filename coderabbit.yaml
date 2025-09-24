@@ -1,0 +1,53 @@
+# CodeRabbit Configuration for Wallpaper Website
+
+## Project Overview
+This is a Next.js 15 wallpaper website with Firebase integration. The project includes:
+- Next.js 15 with App Router and Turbopack
+- Firebase Firestore for data storage
+- React components with TypeScript
+- API routes for wallpaper management
+- Admin panel for content management
+
+## Review Focus Areas
+Please review the entire codebase for:
+
+### 1. Next.js 15 Compatibility
+- Proper use of React.use() for async params
+- Client/server component boundaries
+- App Router implementation
+
+### 2. Code Quality & Best Practices
+- TypeScript implementation
+- React patterns and hooks
+- Error handling and boundaries
+- Performance optimizations
+
+### 3. Firebase Integration
+- Firestore query patterns
+- Error handling for Firebase operations
+- Security considerations
+
+### 4. Project Structure
+- Component organization
+- API route structure
+- File naming conventions
+
+### 5. Dependencies & Package Management
+- Unused dependencies
+- Package.json structure
+- Import optimization
+
+## Key Files to Review
+- `app/` - All Next.js app router files
+- `components/` - React components
+- `lib/` - Utility libraries and services
+- `api/` - API route implementations
+
+## Specific Concerns
+- Check for any remaining Next.js 15 migration issues
+- Verify Firebase query optimization
+- Look for any security vulnerabilities
+- Identify performance bottlenecks
+- Suggest code organization improvements
+
+Please provide a comprehensive review of the entire codebase structure and implementation.
