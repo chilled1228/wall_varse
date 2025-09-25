@@ -8,6 +8,8 @@ import { Toaster } from "@/components/ui/toaster"
 import { AdminProvider } from "@/contexts/admin-context"
 import ErrorBoundary from "@/components/error-boundary"
 import GlobalErrorHandler from "@/components/global-error-handler"
+import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
 import { siteConfig } from "@/lib/config"
 import "./globals.css"
 
@@ -97,7 +99,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         {/* Additional SEO meta tags */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -133,7 +135,8 @@ export default function RootLayout({
         <div className="min-h-screen flex flex-col bg-background">
           <ErrorBoundary>
             <AdminProvider>
-              <Suspense fallback={<div className="min-h-screen flex items-center justify-center">
+              <Header />
+              <Suspense fallback={<div className="flex-1 flex items-center justify-center">
                 <div className="text-center">
                   <div className="text-4xl font-black mb-4">LOADING...</div>
                   <div className="text-lg font-bold text-muted-foreground">Please wait</div>
@@ -144,6 +147,7 @@ export default function RootLayout({
                 <Toaster />
                 <Analytics />
               </Suspense>
+              <Footer />
             </AdminProvider>
           </ErrorBoundary>
         </div>

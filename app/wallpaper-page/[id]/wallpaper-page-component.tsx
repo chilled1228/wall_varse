@@ -2,8 +2,6 @@
 
 import { useState, useEffect } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Download, Heart, Share2, ArrowLeft, Eye, Tag, Loader2 } from "lucide-react"
 import Link from "next/link"
@@ -29,14 +27,27 @@ export function WallpaperPageComponent({ params }: WallpaperPageComponentProps) 
   const [likedWallpapers, setLikedWallpapers] = useState<Set<string>>(new Set())
   const [downloading, setDownloading] = useState(false)
 
+  // Handle scroll restoration with Next.js compatibility
   useEffect(() => {
+    // Simple scroll to top on mount to avoid conflicts
+    window.scrollTo({ top: 0, behavior: 'auto' })
+  }, [])
+
+  useEffect(() => {
+    const abortController = new AbortController()
+
     const loadWallpaper = async () => {
       try {
         setLoading(true)
         setError(null)
 
-        // Use the unified lookup API that handles both slugs and IDs
-        const wallpaperResponse = await fetch(`/api/wallpapers/lookup/${encodeURIComponent(params.id)}`)
+        // Use the unified lookup API that handles both slugs and IDs with abort signal
+        const wallpaperResponse = await fetch(`/api/wallpapers/lookup/${encodeURIComponent(params.id)}`, {
+          signal: abortController.signal
+        })
+
+        if (abortController.signal.aborted) return
+
         const result = await wallpaperResponse.json()
 
         if (!wallpaperResponse.ok || !result.success) {
@@ -48,7 +59,12 @@ export function WallpaperPageComponent({ params }: WallpaperPageComponentProps) 
 
         // Fetch related wallpapers from the same category
         try {
-          const relatedResponse = await fetch(`/api/wallpapers?category=${result.wallpaper.category}&limit=4&exclude=${result.wallpaper.id}`)
+          const relatedResponse = await fetch(`/api/wallpapers?category=${result.wallpaper.category}&limit=4&exclude=${result.wallpaper.id}`, {
+            signal: abortController.signal
+          })
+
+          if (abortController.signal.aborted) return
+
           if (relatedResponse.ok) {
             const relatedResult = await relatedResponse.json()
             if (relatedResult.success) {
@@ -59,18 +75,26 @@ export function WallpaperPageComponent({ params }: WallpaperPageComponentProps) 
             console.warn('Related wallpapers temporarily unavailable due to index creation')
           }
         } catch (relatedError) {
+          if (relatedError.name === 'AbortError') return
           console.warn('Failed to load related wallpapers:', relatedError)
           // Don't fail the whole page if related wallpapers fail to load
         }
       } catch (err) {
+        if (err.name === 'AbortError') return
         console.error('Error loading wallpaper:', err)
         setError('Failed to load wallpaper')
       } finally {
-        setLoading(false)
+        if (!abortController.signal.aborted) {
+          setLoading(false)
+        }
       }
     }
 
     loadWallpaper()
+
+    return () => {
+      abortController.abort()
+    }
   }, [params.id])
 
   // Update document title and meta tags
@@ -167,42 +191,54 @@ export function WallpaperPageComponent({ params }: WallpaperPageComponentProps) 
 
   if (loading) {
     return (
-      <>
-        <Header />
-        <main className="flex-1 container mx-auto px-4 py-6 sm:py-8">
-          <div className="flex items-center justify-center min-h-96">
-            <div className="text-center">
-              <Loader2 className="h-8 w-8 animate-spin mx-auto mb-4" />
-              <p className="text-lg font-bold text-muted-foreground">Loading wallpaper...</p>
+      <main className="flex-1 container mx-auto px-4 py-6 sm:py-8">
+        {/* Match the normal layout structure during loading */}
+        <div className="mb-6 h-6"></div> {/* Breadcrumb space */}
+        <div className="mb-6 h-10"></div> {/* Back button space */}
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Image skeleton */}
+          <div className="space-y-4">
+            <div className="brutalist-border brutalist-shadow bg-card">
+              <div className="relative aspect-[2/3] flex items-center justify-center">
+                <div className="text-center">
+                  <Loader2 className="h-8 w-8 animate-spin mx-auto mb-4" />
+                  <p className="text-lg font-bold text-muted-foreground">Loading wallpaper...</p>
+                </div>
+              </div>
             </div>
           </div>
-        </main>
-        <Footer />
-      </>
+
+          {/* Details skeleton */}
+          <div className="space-y-6">
+            <div className="animate-pulse">
+              <div className="h-8 bg-muted rounded mb-4"></div>
+              <div className="h-4 bg-muted rounded mb-2 w-3/4"></div>
+              <div className="h-4 bg-muted rounded mb-4 w-1/2"></div>
+            </div>
+          </div>
+        </div>
+      </main>
     )
   }
 
   if (error || !wallpaper) {
     return (
-      <>
-        <Header />
-        <main className="flex-1 container mx-auto px-4 py-6 sm:py-8">
-          <div className="text-center py-12">
-            <h1 className="text-3xl font-black text-foreground mb-4">WALLPAPER NOT FOUND</h1>
-            <p className="text-lg font-bold text-muted-foreground mb-6">
-              {error || "The wallpaper you're looking for doesn't exist."}
-            </p>
-            <Button
-              onClick={() => router.push('/')}
-              className="brutalist-border brutalist-shadow font-black"
-            >
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              BACK TO HOME
-            </Button>
-          </div>
-        </main>
-        <Footer />
-      </>
+      <main className="flex-1 container mx-auto px-4 py-6 sm:py-8">
+        <div className="text-center py-12">
+          <h1 className="text-3xl font-black text-foreground mb-4">WALLPAPER NOT FOUND</h1>
+          <p className="text-lg font-bold text-muted-foreground mb-6">
+            {error || "The wallpaper you're looking for doesn't exist."}
+          </p>
+          <Button
+            onClick={() => router.push('/')}
+            className="brutalist-border brutalist-shadow font-black"
+          >
+            <ArrowLeft className="h-4 w-4 mr-2" />
+            BACK TO HOME
+          </Button>
+        </div>
+      </main>
     )
   }
 
@@ -210,10 +246,7 @@ export function WallpaperPageComponent({ params }: WallpaperPageComponentProps) 
   const breadcrumbs = generateBreadcrumbs(categoryKey, wallpaper.title)
 
   return (
-    <>
-      <Header />
-
-      <main className="flex-1 container mx-auto px-4 py-6 sm:py-8">
+    <main className="flex-1 container mx-auto px-4 py-6 sm:py-8">
         {/* Breadcrumbs */}
         <nav className="flex items-center space-x-2 text-sm text-muted-foreground mb-6">
           {breadcrumbs.map((crumb, index) => (
@@ -455,9 +488,6 @@ export function WallpaperPageComponent({ params }: WallpaperPageComponentProps) 
             </div>
           </section>
         )}
-      </main>
-
-      <Footer />
-    </>
+    </main>
   )
 }

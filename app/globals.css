@@ -165,4 +165,25 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
   }
+
+  /* Prevent layout shifts */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Ensure consistent sticky header behavior */
+  .sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  /* Prevent content jumping during loading */
+  .loading-container {
+    min-height: 100vh;
+    contain: layout;
+  }
 }

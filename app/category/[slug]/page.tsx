@@ -1,6 +1,4 @@
 import { notFound } from "next/navigation"
-import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
@@ -136,10 +134,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   const breadcrumbs = generateDynamicBreadcrumbs(category.name, category.slug)
 
   return (
-    <>
-      <Header />
-
-      <main className="flex-1 container mx-auto px-4 py-6 sm:py-8">
+    <main className="flex-1 container mx-auto px-4 py-6 sm:py-8">
         {/* Breadcrumbs */}
         <nav className="flex items-center space-x-2 text-sm text-muted-foreground mb-6">
           {breadcrumbs.map((crumb, index) => (
@@ -185,9 +180,6 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           category={category.slug}
           searchQuery=""
         />
-      </main>
-
-      <Footer />
-    </>
+    </main>
   )
 }

@@ -1,4 +1,3 @@
-import { Header } from "@/components/header"
 import { WallpaperGrid } from "@/components/wallpaper-grid"
 import { CategoryFilter } from "@/components/category-filter"
 import { SearchBar } from "@/components/search-bar"
@@ -43,10 +42,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
   const category = params.category || ""
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-
-      <main className="container mx-auto px-4 py-8">
+    <main className="flex-1 container mx-auto px-4 py-8">
         <section className="mb-12">
           <div className="brutalist-border brutalist-shadow bg-secondary p-8 mb-8">
             <h1 className="text-5xl font-black text-secondary-foreground mb-4 text-balance">SEARCH RESULTS</h1>
@@ -73,7 +69,6 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
         <section>
           <WallpaperGrid searchQuery={query} category={category} />
         </section>
-      </main>
-    </div>
+    </main>
   )
 }
