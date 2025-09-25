@@ -3,6 +3,7 @@ import { WallpaperGrid } from "@/components/wallpaper-grid"
 import { CategoryFilter } from "@/components/category-filter"
 import { SearchBar } from "@/components/search-bar"
 import type { Metadata } from "next"
+import { siteConfig } from "@/lib/config"
 
 interface SearchPageProps {
   searchParams: Promise<{
@@ -16,16 +17,16 @@ export async function generateMetadata({ searchParams }: SearchPageProps): Promi
   const query = params.q || ""
   const category = params.category || ""
 
-  let title = "Search Results - WALLPAPER ZONE"
+  let title = `Search Results - ${siteConfig.name}`
   let description = "Search results for wallpapers"
 
   if (query) {
-    title = `"${query}" Search Results - WALLPAPER ZONE`
+    title = `"${query}" Search Results - ${siteConfig.name}`
     description = `Search results for "${query}" wallpapers`
   }
 
   if (category) {
-    title = `${category.toUpperCase()} Search Results - WALLPAPER ZONE`
+    title = `${category.toUpperCase()} Search Results - ${siteConfig.name}`
     description = `Search results for ${category} wallpapers`
   }
 

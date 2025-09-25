@@ -11,6 +11,7 @@ import { useToast } from "@/hooks/use-toast"
 import { generateBreadcrumbs, getCategoryKeyBySlug } from "@/lib/slug-utils"
 import type { WallpaperWithId } from "@/lib/wallpaper-service"
 import type { CategoryKey } from "@/lib/slug-utils"
+import { siteConfig } from "@/lib/config"
 
 interface WallpaperPageComponentProps {
   params: {
@@ -75,7 +76,7 @@ export function WallpaperPageComponent({ params }: WallpaperPageComponentProps) 
   // Update document title and meta tags
   useEffect(() => {
     if (wallpaper) {
-      document.title = `${wallpaper.title} - ${wallpaper.category.toUpperCase()} Wallpaper | WALLPAPER ZONE`
+      document.title = `${wallpaper.title} - ${wallpaper.category.toUpperCase()} Wallpaper | ${siteConfig.name}`
 
       // Update meta description
       const metaDescription = document.querySelector('meta[name="description"]')

@@ -1,20 +1,19 @@
 import type { MetadataRoute } from "next"
+import { siteConfig } from "@/lib/config"
 
 const categories = ["nature", "abstract", "minimal", "dark", "colorful", "space", "animals", "cars", "architecture"]
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://wallpaper-zone.vercel.app" // Replace with your actual domain
-
   // Static pages
   const staticPages = [
     {
-      url: baseUrl,
+      url: siteConfig.url,
       lastModified: new Date(),
       changeFrequency: "daily" as const,
       priority: 1,
     },
     {
-      url: `${baseUrl}/search`,
+      url: `${siteConfig.url}/search`,
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: 0.8,
@@ -23,7 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Category pages
   const categoryPages = categories.map((category) => ({
-    url: `${baseUrl}/category/${category}`,
+    url: `${siteConfig.url}/category/${category}`,
     lastModified: new Date(),
     changeFrequency: "daily" as const,
     priority: 0.9,

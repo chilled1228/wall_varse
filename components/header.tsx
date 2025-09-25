@@ -5,6 +5,7 @@ import { Download, Menu, X, Home, Grid3X3, Search } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
+import { siteConfig } from "@/lib/config"
 
 export function Header() {
   const pathname = usePathname()
@@ -25,8 +26,8 @@ export function Header() {
               <Download className="h-5 w-5 sm:h-6 sm:w-6 text-accent-foreground" />
             </div>
             <h2 className="text-lg sm:text-2xl font-black text-card-foreground">
-              <span className="hidden sm:inline">WALLPAPER ZONE</span>
-              <span className="sm:hidden">WZ</span>
+              <span className="hidden sm:inline">{siteConfig.name}</span>
+              <span className="sm:hidden">WV</span>
             </h2>
           </Link>
 

@@ -1,3 +1,5 @@
+import { siteConfig } from "@/lib/config"
+
 interface WallpaperStructuredDataProps {
   wallpaper: {
     id: number | string
@@ -40,7 +42,7 @@ export function WallpaperStructuredData({ wallpaper }: WallpaperStructuredDataPr
       },
     ],
     license: "https://creativecommons.org/publicdomain/zero/1.0/",
-    acquireLicensePage: "https://wallpaper-zone.vercel.app",
+    acquireLicensePage: siteConfig.url,
   }
 
   return (

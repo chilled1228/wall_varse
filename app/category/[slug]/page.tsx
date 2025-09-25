@@ -5,8 +5,10 @@ import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
 import { WallpaperGrid } from "@/components/wallpaper-grid"
-import { getCategoryBySlug, generateBreadcrumbs, type CategoryKey } from "@/lib/slug-utils"
+import { getCategoryBySlug, type DynamicCategory } from "@/lib/dynamic-category-service"
+import { wallpaperService } from "@/lib/wallpaper-service"
 import type { Metadata } from "next"
+import { siteConfig } from "@/lib/config"
 
 interface CategoryPageProps {
   params: Promise<{
@@ -15,49 +17,35 @@ interface CategoryPageProps {
 }
 
 interface CategoryData {
-  key: CategoryKey
+  key: string
   slug: string
   name: string
   description: string
   seoTitle: string
-  wallpaper_count?: number
+  count: number
+  featured: boolean
+  isPredefined: boolean
 }
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
   const { slug } = await params
 
   try {
-    // Validate category slug locally first
-    const categoryInfo = getCategoryBySlug(slug)
-    if (!categoryInfo) {
-      return {
-        title: 'Category Not Found | WALLPAPER ZONE',
-        description: 'The requested category could not be found.'
-      }
-    }
-
-    // Fetch category data for metadata
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/categories/${encodeURIComponent(slug)}`)
-
-    if (!response.ok) {
-      return {
-        title: 'Category Not Found | WALLPAPER ZONE',
-        description: 'The requested category could not be found.'
-      }
-    }
-
-    const result = await response.json()
-    const category = result.category
+    // Use direct service calls instead of HTTP requests to avoid URL conflicts
+    const category = await getCategoryBySlug(slug)
 
     if (!category) {
       return {
-        title: 'Category Not Found | WALLPAPER ZONE',
+        title: `Category Not Found | ${siteConfig.name}`,
         description: 'The requested category could not be found.'
       }
     }
 
-    const title = `${category.name.toUpperCase()} Wallpapers - Free Mobile & Desktop Backgrounds | WALLPAPER ZONE`
-    const description = `Download ${category.description.toLowerCase()}. Browse our collection of ${result.wallpapers?.length || 'amazing'} high-quality ${category.name.toLowerCase()} wallpapers for mobile and desktop. All wallpapers are free to download.`
+    // Get wallpapers count for this category
+    const wallpapers = await wallpaperService.getWallpapersByCategory(slug)
+
+    const title = `${category.name.toUpperCase()} Wallpapers - Free Mobile & Desktop Backgrounds | ${siteConfig.name}`
+    const description = `Download ${category.description.toLowerCase()}. Browse our collection of ${wallpapers.length || 'amazing'} high-quality ${category.name.toLowerCase()} wallpapers for mobile and desktop. All wallpapers are free to download.`
 
     return {
       title,
@@ -77,7 +65,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
         description,
         type: 'website',
         url: `/category/${slug}`,
-        siteName: 'WALLPAPER ZONE',
+        siteName: siteConfig.name,
       },
       twitter: {
         card: 'summary_large_image',
@@ -91,7 +79,7 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   } catch (error) {
     console.error('Error generating category metadata:', error)
     return {
-      title: 'Category | WALLPAPER ZONE',
+      title: `Category | ${siteConfig.name}`,
       description: 'Browse our collection of high-quality wallpapers.'
     }
   }
@@ -99,34 +87,41 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 
 async function getCategoryData(slug: string): Promise<{ category: CategoryData; wallpapers: any[] } | null> {
   try {
-    // Validate category slug locally first
-    const categoryInfo = getCategoryBySlug(slug)
-    if (!categoryInfo) {
+    // Use direct service calls instead of HTTP requests to avoid URL conflicts
+    const category = await getCategoryBySlug(slug)
+
+    if (!category) {
       return null
     }
 
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/categories/${encodeURIComponent(slug)}`, {
-      next: { revalidate: 300 } // Revalidate every 5 minutes
-    })
-
-    if (!response.ok) {
-      return null
-    }
-
-    const result = await response.json()
-
-    if (!result.success || !result.category) {
-      return null
-    }
+    // Get wallpapers for this category
+    const wallpapers = await wallpaperService.getWallpapersByCategory(slug)
 
     return {
-      category: result.category,
-      wallpapers: result.wallpapers || []
+      category: {
+        key: category.slug,
+        slug: category.slug,
+        name: category.name,
+        description: category.description,
+        seoTitle: category.seoTitle,
+        count: category.count,
+        featured: category.featured,
+        isPredefined: category.isPredefined
+      },
+      wallpapers: wallpapers || []
     }
   } catch (error) {
     console.error('Error loading category data:', error)
     return null
   }
+}
+
+// Generate dynamic breadcrumbs
+function generateDynamicBreadcrumbs(categoryName: string, categorySlug: string) {
+  return [
+    { name: 'Home', url: '/' },
+    { name: categoryName, url: '#' } // Current page
+  ]
 }
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
@@ -138,7 +133,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   }
 
   const { category, wallpapers } = data
-  const breadcrumbs = generateBreadcrumbs(category.key)
+  const breadcrumbs = generateDynamicBreadcrumbs(category.name, category.slug)
 
   return (
     <>
@@ -187,7 +182,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
         {/* Wallpapers Grid */}
         <WallpaperGrid
-          category={category.key}
+          category={category.slug}
           searchQuery=""
         />
       </main>

@@ -4,6 +4,7 @@ import { WallpaperGrid } from "@/components/wallpaper-grid"
 import { CategoryFilter } from "@/components/category-filter"
 import { SearchBar } from "@/components/search-bar"
 import type { Metadata } from "next"
+import { siteConfig } from "@/lib/config"
 
 export const metadata: Metadata = {
   title: "Free Mobile Wallpapers - Download HD Phone Backgrounds",
@@ -23,18 +24,18 @@ export const metadata: Metadata = {
     title: "Free Mobile Wallpapers - Download HD Phone Backgrounds",
     description:
       "Download thousands of free high-quality mobile wallpapers. Browse categories like nature, abstract, minimal, dark, and more.",
-    url: "https://wallpaper-zone.vercel.app",
+    url: siteConfig.url,
     images: [
       {
         url: "/og-home.jpg",
         width: 1200,
         height: 630,
-        alt: "WALLPAPER ZONE Homepage",
+        alt: `${siteConfig.name} Homepage`,
       },
     ],
   },
   alternates: {
-    canonical: "https://wallpaper-zone.vercel.app",
+    canonical: siteConfig.url,
   },
 }
 
@@ -48,7 +49,7 @@ export default function HomePage() {
         <section className="mb-8 sm:mb-12">
           <div className="brutalist-border brutalist-shadow bg-secondary p-4 sm:p-8 mb-6 sm:mb-8">
             <h1 className="text-3xl sm:text-4xl lg:text-6xl font-black text-secondary-foreground mb-3 sm:mb-4 text-balance">
-              WALLPAPER ZONE
+              {siteConfig.name}
             </h1>
             <p className="text-base sm:text-xl font-bold text-secondary-foreground text-pretty mb-3 sm:mb-4">
               FREE HIGH-QUALITY MOBILE WALLPAPERS. NO SIGNUP. NO BS.
@@ -82,10 +83,10 @@ export default function HomePage() {
 
         {/* SEO Content Section */}
         <section className="mt-12 sm:mt-16 brutalist-border brutalist-shadow bg-card p-4 sm:p-8">
-          <h2 className="text-2xl sm:text-3xl font-black text-card-foreground mb-4 sm:mb-6">ABOUT WALLPAPER ZONE</h2>
+          <h2 className="text-2xl sm:text-3xl font-black text-card-foreground mb-4 sm:mb-6">ABOUT {siteConfig.name.toUpperCase()}</h2>
           <div className="prose prose-lg max-w-none">
             <p className="text-sm sm:text-lg font-bold text-card-foreground mb-4">
-              WALLPAPER ZONE is your ultimate destination for free, high-quality mobile wallpapers. We offer thousands
+              {siteConfig.name} is your ultimate destination for free, high-quality mobile wallpapers. We offer thousands
               of carefully curated wallpapers across multiple categories, all optimized for mobile devices.
             </p>
             <p className="text-sm sm:text-lg font-bold text-card-foreground mb-4">

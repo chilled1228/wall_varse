@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Download, Heart, Github, Twitter, Instagram } from "lucide-react"
 import Link from "next/link"
+import { siteConfig } from "@/lib/config"
 
 export function Footer() {
   return (
@@ -15,7 +16,7 @@ export function Footer() {
               <div className="brutalist-border brutalist-shadow bg-accent p-2">
                 <Download className="h-6 w-6 text-accent-foreground" />
               </div>
-              <h3 className="text-xl sm:text-2xl font-black text-card-foreground">WALLPAPER ZONE</h3>
+              <h3 className="text-xl sm:text-2xl font-black text-card-foreground">{siteConfig.name}</h3>
             </div>
             <p className="text-sm font-bold text-muted-foreground mb-4">
               FREE HIGH-QUALITY MOBILE WALLPAPERS. NO SIGNUP. NO BS.
@@ -94,7 +95,7 @@ export function Footer() {
         <div className="mt-8 pt-8 border-t-2 border-border">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-sm font-bold text-muted-foreground text-center sm:text-left">
-              © 2024 WALLPAPER ZONE. ALL RIGHTS RESERVED.
+              © 2024 {siteConfig.name}. ALL RIGHTS RESERVED.
             </p>
             <div className="flex items-center gap-4 text-sm font-bold text-muted-foreground">
               <Link href="/privacy" className="hover:text-foreground">

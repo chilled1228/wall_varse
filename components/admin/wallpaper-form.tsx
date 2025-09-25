@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -10,7 +10,6 @@ import { Textarea } from "@/components/ui/textarea"
 import { Badge } from "@/components/ui/badge"
 import { Upload, X, ImageIcon, Loader2 } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
-import { getAllCategories } from "@/lib/slug-utils"
 import { SlugInput } from "./slug-input"
 
 interface WallpaperFormProps {
@@ -18,21 +17,10 @@ interface WallpaperFormProps {
   onCancel?: () => void
 }
 
-const categories = getAllCategories().map(cat => cat.key)
-
-const commonResolutions = [
-  '1080x1920',
-  '1440x2560',
-  '1125x2436',
-  '1284x2778',
-  '2160x3840',
-]
-
-const deviceTypes = [
-  'phone',
-  'tablet',
-  'desktop',
-]
+interface CategoryOption {
+  slug: string
+  name: string
+}
 
 export function WallpaperForm({ onSuccess, onCancel }: WallpaperFormProps) {
   const [formData, setFormData] = useState({
@@ -51,7 +39,57 @@ export function WallpaperForm({ onSuccess, onCancel }: WallpaperFormProps) {
   const [currentTag, setCurrentTag] = useState('')
   const [slug, setSlug] = useState('')
 
+  // Dynamic data states
+  const [categories, setCategories] = useState<CategoryOption[]>([])
+  const [resolutions, setResolutions] = useState<string[]>([])
+  const [deviceTypes, setDeviceTypes] = useState<string[]>([])
+  const [loadingOptions, setLoadingOptions] = useState(true)
+
   const { toast } = useToast()
+
+  // Load dynamic options
+  useEffect(() => {
+    const loadOptions = async () => {
+      try {
+        setLoadingOptions(true)
+
+        // Load categories
+        const categoriesResponse = await fetch('/api/categories')
+        if (categoriesResponse.ok) {
+          const categoriesData = await categoriesResponse.json()
+          if (categoriesData.success && categoriesData.categories) {
+            setCategories(categoriesData.categories.map((cat: any) => ({
+              slug: cat.slug,
+              name: cat.name
+            })))
+          }
+        }
+
+        // Load dynamic resolutions and device types
+        const dynamicResponse = await fetch('/api/admin/dynamic-options')
+        if (dynamicResponse.ok) {
+          const dynamicData = await dynamicResponse.json()
+          if (dynamicData.success) {
+            setResolutions(dynamicData.resolutions || ['1080x1920', '1440x2560', '2160x3840'])
+            setDeviceTypes(dynamicData.deviceTypes || ['phone', 'tablet', 'desktop'])
+          }
+        } else {
+          // Fallback to default values
+          setResolutions(['1080x1920', '1440x2560', '1125x2436', '1284x2778', '2160x3840'])
+          setDeviceTypes(['phone', 'tablet', 'desktop'])
+        }
+      } catch (error) {
+        console.error('Error loading form options:', error)
+        // Fallback values
+        setResolutions(['1080x1920', '1440x2560', '1125x2436', '1284x2778', '2160x3840'])
+        setDeviceTypes(['phone', 'tablet', 'desktop'])
+      } finally {
+        setLoadingOptions(false)
+      }
+    }
+
+    loadOptions()
+  }, [])
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0]
@@ -300,11 +338,17 @@ export function WallpaperForm({ onSuccess, onCancel }: WallpaperFormProps) {
               <SelectValue placeholder="SELECT CATEGORY" />
             </SelectTrigger>
             <SelectContent>
-              {categories.map((category) => (
-                <SelectItem key={category} value={category} className="font-bold">
-                  {category.toUpperCase()}
+              {loadingOptions ? (
+                <SelectItem value="" disabled className="font-bold">
+                  LOADING CATEGORIES...
                 </SelectItem>
-              ))}
+              ) : (
+                categories.map((category) => (
+                  <SelectItem key={category.slug} value={category.slug} className="font-bold">
+                    {category.name}
+                  </SelectItem>
+                ))
+              )}
             </SelectContent>
           </Select>
         </div>
@@ -325,14 +369,22 @@ export function WallpaperForm({ onSuccess, onCancel }: WallpaperFormProps) {
                 <SelectValue placeholder="SELECT RESOLUTION" />
               </SelectTrigger>
               <SelectContent>
-                {commonResolutions.map((res) => (
-                  <SelectItem key={res} value={res} className="font-bold">
-                    {res}
+                {loadingOptions ? (
+                  <SelectItem value="" disabled className="font-bold">
+                    LOADING RESOLUTIONS...
                   </SelectItem>
-                ))}
-                <SelectItem value="custom" className="font-bold">
-                  CUSTOM
-                </SelectItem>
+                ) : (
+                  <>
+                    {resolutions.map((res) => (
+                      <SelectItem key={res} value={res} className="font-bold">
+                        {res}
+                      </SelectItem>
+                    ))}
+                    <SelectItem value="custom" className="font-bold">
+                      CUSTOM
+                    </SelectItem>
+                  </>
+                )}
               </SelectContent>
             </Select>
 
@@ -360,11 +412,17 @@ export function WallpaperForm({ onSuccess, onCancel }: WallpaperFormProps) {
               <SelectValue placeholder="SELECT DEVICE TYPE" />
             </SelectTrigger>
             <SelectContent>
-              {deviceTypes.map((device) => (
-                <SelectItem key={device} value={device} className="font-bold">
-                  {device.toUpperCase()}
+              {loadingOptions ? (
+                <SelectItem value="" disabled className="font-bold">
+                  LOADING DEVICE TYPES...
                 </SelectItem>
-              ))}
+              ) : (
+                deviceTypes.map((device) => (
+                  <SelectItem key={device} value={device} className="font-bold">
+                    {device.toUpperCase()}
+                  </SelectItem>
+                ))
+              )}
             </SelectContent>
           </Select>
         </div>

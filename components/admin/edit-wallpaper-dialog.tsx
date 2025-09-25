@@ -10,7 +10,6 @@ import { Badge } from "@/components/ui/badge"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Edit, X, Loader2, Save } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
-import { getAllCategories } from "@/lib/slug-utils"
 import type { WallpaperWithId } from "@/lib/wallpaper-service"
 
 interface EditWallpaperDialogProps {
@@ -19,21 +18,10 @@ interface EditWallpaperDialogProps {
   trigger?: React.ReactNode
 }
 
-const categories = getAllCategories().map(cat => cat.key)
-
-const commonResolutions = [
-  '1080x1920',
-  '1440x2560',
-  '1125x2436',
-  '1284x2778',
-  '2160x3840',
-]
-
-const deviceTypes = [
-  'phone',
-  'tablet',
-  'desktop',
-]
+interface CategoryOption {
+  slug: string
+  name: string
+}
 
 export function EditWallpaperDialog({ wallpaper, onSuccess, trigger }: EditWallpaperDialogProps) {
   const [open, setOpen] = useState(false)
@@ -49,7 +37,59 @@ export function EditWallpaperDialog({ wallpaper, onSuccess, trigger }: EditWallp
   const [tagsList, setTagsList] = useState<string[]>(wallpaper.tags || [])
   const [currentTag, setCurrentTag] = useState('')
 
+  // Dynamic data states
+  const [categories, setCategories] = useState<CategoryOption[]>([])
+  const [resolutions, setResolutions] = useState<string[]>([])
+  const [deviceTypes, setDeviceTypes] = useState<string[]>([])
+  const [loadingOptions, setLoadingOptions] = useState(true)
+
   const { toast } = useToast()
+
+  // Load dynamic options
+  useEffect(() => {
+    if (open) { // Only load when dialog is open
+      const loadOptions = async () => {
+        try {
+          setLoadingOptions(true)
+
+          // Load categories
+          const categoriesResponse = await fetch('/api/categories')
+          if (categoriesResponse.ok) {
+            const categoriesData = await categoriesResponse.json()
+            if (categoriesData.success && categoriesData.categories) {
+              setCategories(categoriesData.categories.map((cat: any) => ({
+                slug: cat.slug,
+                name: cat.name
+              })))
+            }
+          }
+
+          // Load dynamic resolutions and device types
+          const dynamicResponse = await fetch('/api/admin/dynamic-options')
+          if (dynamicResponse.ok) {
+            const dynamicData = await dynamicResponse.json()
+            if (dynamicData.success) {
+              setResolutions(dynamicData.resolutions || ['1080x1920', '1440x2560', '2160x3840'])
+              setDeviceTypes(dynamicData.deviceTypes || ['phone', 'tablet', 'desktop'])
+            }
+          } else {
+            // Fallback to default values
+            setResolutions(['1080x1920', '1440x2560', '1125x2436', '1284x2778', '2160x3840'])
+            setDeviceTypes(['phone', 'tablet', 'desktop'])
+          }
+        } catch (error) {
+          console.error('Error loading form options:', error)
+          // Fallback values
+          setResolutions(['1080x1920', '1440x2560', '1125x2436', '1284x2778', '2160x3840'])
+          setDeviceTypes(['phone', 'tablet', 'desktop'])
+        } finally {
+          setLoadingOptions(false)
+        }
+      }
+
+      loadOptions()
+    }
+  }, [open])
 
   // Reset form when wallpaper changes
   useEffect(() => {
@@ -213,11 +253,17 @@ export function EditWallpaperDialog({ wallpaper, onSuccess, trigger }: EditWallp
                 <SelectValue placeholder="SELECT CATEGORY" />
               </SelectTrigger>
               <SelectContent>
-                {categories.map((category) => (
-                  <SelectItem key={category} value={category} className="font-bold">
-                    {category.toUpperCase()}
+                {loadingOptions ? (
+                  <SelectItem value="" disabled className="font-bold">
+                    LOADING CATEGORIES...
                   </SelectItem>
-                ))}
+                ) : (
+                  categories.map((category) => (
+                    <SelectItem key={category.slug} value={category.slug} className="font-bold">
+                      {category.name}
+                    </SelectItem>
+                  ))
+                )}
               </SelectContent>
             </Select>
           </div>
@@ -238,14 +284,22 @@ export function EditWallpaperDialog({ wallpaper, onSuccess, trigger }: EditWallp
                   <SelectValue placeholder="SELECT RESOLUTION" />
                 </SelectTrigger>
                 <SelectContent>
-                  {commonResolutions.map((res) => (
-                    <SelectItem key={res} value={res} className="font-bold">
-                      {res}
+                  {loadingOptions ? (
+                    <SelectItem value="" disabled className="font-bold">
+                      LOADING RESOLUTIONS...
                     </SelectItem>
-                  ))}
-                  <SelectItem value="custom" className="font-bold">
-                    CUSTOM
-                  </SelectItem>
+                  ) : (
+                    <>
+                      {resolutions.map((res) => (
+                        <SelectItem key={res} value={res} className="font-bold">
+                          {res}
+                        </SelectItem>
+                      ))}
+                      <SelectItem value="custom" className="font-bold">
+                        CUSTOM
+                      </SelectItem>
+                    </>
+                  )}
                 </SelectContent>
               </Select>
 
@@ -273,11 +327,17 @@ export function EditWallpaperDialog({ wallpaper, onSuccess, trigger }: EditWallp
                 <SelectValue placeholder="SELECT DEVICE TYPE" />
               </SelectTrigger>
               <SelectContent>
-                {deviceTypes.map((device) => (
-                  <SelectItem key={device} value={device} className="font-bold">
-                    {device.toUpperCase()}
+                {loadingOptions ? (
+                  <SelectItem value="" disabled className="font-bold">
+                    LOADING DEVICE TYPES...
                   </SelectItem>
-                ))}
+                ) : (
+                  deviceTypes.map((device) => (
+                    <SelectItem key={device} value={device} className="font-bold">
+                      {device.toUpperCase()}
+                    </SelectItem>
+                  ))
+                )}
               </SelectContent>
             </Select>
           </div>
